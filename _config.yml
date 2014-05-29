@@ -4,7 +4,7 @@ description: "Trying hard"
 url: "https://kbleabres.github.io"
 github: kbleabres
 
-paginate: 5
+paginate: 3
 
 markdown: rdiscount
 permalink: pretty
