@@ -2,7 +2,7 @@
 layout: default
 ---
 
-{% for post in paginator.posts limit: 5 sort_by: title %}
+{% for post in paginator.posts limit: 3 sort_by: title %}
 <div class="row-fluid">
   <div class="span12">
     <h2>{{ post.title | capitalize }}</h2>
