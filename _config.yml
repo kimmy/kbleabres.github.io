@@ -2,8 +2,9 @@ name: "Kim Leabres"
 description: "Trying hard"
 
 url: "https://kbleabres.github.io"
+github: kbleabres
 
-paginate: 10
+paginate: 5
 
 markdown: rdiscount
 permalink: pretty
