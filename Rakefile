@@ -50,7 +50,7 @@ task :post do
   comments = ENV["comments"] || "false"
   category = ENV["category"] || ""
   category = "\"#{category.gsub(/-/,' ')}\"" if !category.empty?
-  slug = title.downcase.strip.gsub(' ', '-').gsub(/[^\w-]/, '')
+  slug = title.strip.gsub(' ', '_').gsub(/[^\w-]/, '')
   begin
     date = (ENV['date'] ? Time.parse(ENV['date']) : Time.now()).strftime('%Y-%m-%d')
   rescue => e
@@ -75,6 +75,8 @@ task :post do
     post.puts "---"
     post.puts " "
   end
+  new_post = Dir.pwd + "/_posts/#{date}-#{slug}.#{CONFIG['post_ext']}"
+  system %{subl "#{new_post}"}
 end # task :post
 
 # Usage: rake page name="about.html"
