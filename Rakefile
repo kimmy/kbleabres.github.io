@@ -47,7 +47,7 @@ task :post do
   title = ENV["title"] || "new-post"
   dateTime = ENV['dateTime'] || Time.now().strftime('%Y-%m-%d %H:%M:%S %Z')
   tags = ENV["tags"] || "[]"
-  comments = ENV["comments"] || "false"
+  comments = ENV["comments"] || "true"
   category = ENV["category"] || ""
   category = "\"#{category.gsub(/-/,' ')}\"" if !category.empty?
   slug = title.strip.gsub(' ', '_').gsub(/[^\w-]/, '')

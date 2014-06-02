@@ -1,0 +1,16 @@
+<div class="span4" style="padding-left: 10px; border: 1px dashed; border-radius: 10px">
+  <div class="clear">&nbsp;</div>
+  <h3>Other Posts</h3>
+    <div id="page-navigation"> 
+          {% if page.previous.url %} 
+            <a href="{{page.previous.url}}" title="Previous Post: 
+            {{page.previous.title}}">&laquo; {{page.previous.title}}</a> 
+          {% endif %} 
+        {% if page.previous.url and page.next.url %} <b>|</b> {% endif %}
+          {% if page.next.url %} 
+            <a href="{{page.next.url}}" title="next Post: 
+            {{page.next.title}}">{{page.next.title}} &raquo; </a> 
+          {% endif %} 
+      <div class="clear">&nbsp;</div> 
+    </div>
+</div>
