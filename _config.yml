@@ -10,3 +10,4 @@ markdown: rdiscount
 permalink: pretty
 pygments: true
 
+exclude: [Rakefile]
