@@ -3,54 +3,40 @@ require 'rake'
 require 'yaml'
 require 'time'
 
-# # Rquire jekyll to compile the site.
+# require "tmpdir"
+# require "bundler/setup"
 # require "jekyll"
 
-# # Github pages publishing.
-# namespace :blog do
-#   #
-#   # Because we are using 3rd party plugins for jekyll to manage the asset pipeline
-#   # and suchlike we are unable to just branch the code, we have to process the site
-#   # localy before pushing it to the branch to publish.
-#   #
-#   # We built this little rake task to help make that a little bit eaiser.
-#   #
 
-#   # Usaage:
-#   # bundle exec rake blog:publish
-#   desc "Publish blog to gh-pages"
-#   task :publish do
-#     # Compile the Jekyll site using the config.
-#     Jekyll::Site.new(Jekyll.configuration({
-#       "source"      => ".",
-#       "destination" => "_site",
-#       "config" => "_config.yml"
-#     })).process
+# # Change your GitHub reponame
+# GITHUB_REPONAME = "kbleabres/kbleabres.github.io"
 
-#     # Get the origin to which we are going to push the site.
-#     origin = `git config --get remote.origin.url`
 
-#     # Make a temporary directory for the build before production release.
-#     # This will be torn down once the task is complete.
-#     Dir.mktmpdir do |tmp|
-#       # Copy accross our compiled _site directory.
-#       cp_r "_site/.", tmp
+# desc "Generate blog files"
+# task :generate do
+#   Jekyll::Site.new(Jekyll.configuration({
+#     "source"      => ".",
+#     "destination" => "_site"
+#   })).process
+# end
 
-#       # Switch in to the tmp dir.
-#       Dir.chdir tmp
 
-#       # Prepare all the content in the repo for deployment.
-#       system "git init" # Init the repo.
-#       system "git add . && git commit -m 'Site updated at #{Time.now.utc}'" # Add and commit all the files.
+# desc "Generate and publish blog to gh-pages"
+# task :publish => [:generate] do
+#   Dir.mktmpdir do |tmp|
+#     cp_r "_site/.", tmp
 
-#       # Add the origin remote for the parent repo to the tmp folder.
-#       system "git remote add origin #{origin}"
+#     pwd = Dir.pwd
+#     Dir.chdir tmp
 
-#       # Push the files to the gh-pages branch, forcing an overwrite.
-#       system "git push origin master:refs/heads/gh-pages --force"
-#     end
+#     system "git init"
+#     system "git add ."
+#     message = "Site updated at #{Time.now.utc}"
+#     system "git commit -m #{message.inspect}"
+#     system "git remote add origin git@github.com:#{GITHUB_REPONAME}.git"
+#     system "git push origin master --force"
 
-#     # Done.
+#     Dir.chdir pwd
 #   end
 # end
 

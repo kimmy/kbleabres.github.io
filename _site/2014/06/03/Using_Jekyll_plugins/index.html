@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Kim Leabres</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Trying hard">
+
+
+<link href="/css/bootstrap.css" rel="stylesheet">
+<link rel="stylesheet" href="/css/elusive-webfont.css">
+<style>
+  body {
+    padding-top: 60px;
+  }
+  em{
+    color: #006ab6;
+  }
+  strong, b{
+    color: #6699cc;
+  }
+</style>
+<link href="/css/bootstrap-responsive.css" rel="stylesheet">
+
+<!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+<!--[if lt IE 9]>
+  <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+</head>
+<body>
+
+<div class="navbar navbar-inverse navbar-fixed-top">
+  <div class="navbar-inner">
+    <div class="container">
+      <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </a>
+      <a class="brand" href="">Kim Leabres</a>
+      <div class="nav-collapse collapse">
+        <ul class="nav">
+          <li class="inactive"><a href="/">Home</a></li>
+          <li class="inactive"><a href="/about">About</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+<div class="row-fluid">
+<!--     <div class="span4">
+        <h3>About Me</h3>
+
+<p>Donec libero libero, bibendum non condimentum ac, ullamcorper at sapien. Duis feugiat urna vel justo cursus facilisis. Vivamus ligula dui, convallis a varius vitae, facilisis eget magna.</p>
+<br />
+<h4> Recent Posts </h4>
+<ul>
+  
+    <li><a href="/2014/06/03/Using_Jekyll_plugins/">On using Jekyll, and plugins</a></li>
+  
+    <li><a href="/2014/06/03/Ruby_Sparks/">Ruby Sparks</a></li>
+  
+    <li><a href="/2014/05/29/hi-hello/">Hi hello</a></li>
+  
+    <li><a href="/2014/05/29/Lorem_ipsum/">Lorem Ipsum Dolor Sit Amet</a></li>
+  
+    <li><a href="/2014/05/29/Consectetur_Elit/">Consectetur Elit</a></li>
+  
+</ul>
+    </div> -->
+<div class="span8" style="background-color: rgba(239,239,239,0.1); padding: 10px; border: 1px dashed; border-radius: 10px">
+    <h1>On using Jekyll, and plugins</h1>
+    <h5>03 June 2014 </h5>
+    <p>
+      <p>It's only been a few weeks since I first started to get familiarized with <em>Ruby on Rails</em>, and almost everything related to it, like <em>Github!</em> Where you can store your open source project code. I found out about <em>Jekyll</em> after stumbling upon a lot of blogs about Rails. Jekyll is used to build static websites that can run on Github pages.</p>
+
+<p>Now this, <a href="https://kbleabres.github.io">kbleabres.github.io</a>, is using Jekyll and surprisingly, I am enjoying Jekyll. Surprisingly because, despite the fact that most people think this is less work than other kind of blogs, I personally think this requires a lot more work. Create a new post. Add front matter <em>(though I handled this already via Rakefile.)</em> Save. Then <code>git add .</code> <code>git commit -m "New blog post"</code> <code>git push -u origin master</code>  rathen than a simple Click text, type your blog, Post. Yes, I am talking about <em>Tumblr</em>.</p>
+
+<p>Of course, I wanted my site to look a little better everyday. Or at least every week. But ever since I started using Jekyll, I have been avoiding posts about using plugins because I wanted my website to be as simple as possible. For me: <em>Plugins</em> <strong>=</strong> <em>more features</em> <strong>=</strong> <em>more things to maintain and handle.</em> So basically, adding plugins means adding more work. It's tiring.</p>
+
+<p>And I was right. I didn't know what changed my mind. Maybe because I have seen a lot of blogs that have this feature and I wanted it for my own blog too. It's the "reading time" stuff. Where it will tell you about how much of your time will be spent reading a post. It's quite cool if you ask me.</p>
+
+<p>So yeah, I decided to add a plugin to my Jekyll blog. And it was working perfectly while I was viewing it via <code>localhost:4000</code> so I continued typing my blog post and after, I pushed to my repo. When I viewed my site online.. <strong>oh my god the horror</strong></p>
+
+<p>Then I found out that GitHub renders pages with safe mode enabled. Therefore, my custom plugin was disabled because it was a third party plugin.</p>
+
+<p>I then asked Google how to make these plugins work. I followed a set of instructions that told me to rename my current directory to <code>something</code> and create a new directory named <code>something_something</code> and copy the contents of <code>something</code> to <code>something_something</code> and <code>git rm -r</code> my <code>something</code> directory. After that, it made me do <code>jekyll build</code> on <code>something_something</code> and then made me copy the contents of <code>something_something</code> to <code>something</code> and then create a <code>.nojekyll</code> file in the <code>something</code> directory. Then <code>git add --all :/</code> <code>git commit -m "Built site locally"</code> (because this set of steps is making you build your site locally) and finally <code>git push -u origin master</code></p>
+
+<p>After following that set of instructions <strong>oh god the horror x 10000</strong> my website looked a lot more worse than before I did those set of steps. Basically, the layout was stripped out of my blog and the tags weren't working anymore. I was pretty sure I followed the instructions very well. I was sure.</p>
+
+<p>So I just undid my push, and looked for another set of instructions. Now this one doesn't make me do anything other than pasting a long block of code into my <code>Rakefile</code> and then running <code>rake blog:publish</code>. I hoped that this would work but an error about permission was appearing. I asked Google yet again but there were no answers fit for my problem.</p>
+
+<p>So I searched and searched and I stumbled upon <a href="http://ixti.net/software/2013/01/28/using-jekyll-plugins-on-github-pages.html">ixti's solution</a> and it worked like a charm omg the best thing that happened to me today</p>
+
+<p>So basically all I have to do was to put this on my <code>Rakefile</code></p>
+
+<pre><code>require "tmpdir"
+require "bundler/setup"
+require "jekyll"
+
+GITHUB_REPONAME = "kbleabres/kbleabres.github.io"
+
+desc "Generate blog files"
+task :generate do
+    Jekyll::Site.new(Jekyll.configuration({
+        "source"      =&gt; ".",
+        "destination" =&gt; "_site"
+    })).process
+end
+
+desc "Generate and publish blog to gh-pages"
+task :publish =&gt; [:generate] do
+    Dir.mktmpdir do |tmp|
+        cp_r "_site/.", tmp
+
+        pwd = Dir.pwd
+        Dir.chdir tmp
+
+        system "git init"
+        system "git add ."
+        message = "Site updated at #{Time.now.utc}"
+        system "git commit -m #{message.inspect}"
+        system "git remote add origin git@github.com:#{GITHUB_REPONAME}.git"
+        system "git push origin master --force"
+
+    Dir.chdir pwd
+    end
+end
+</code></pre>
+
+<p>and all I had to do next was to run <code>rake publish</code> and when I viewed my site wow it was back to normal, with the feature I wanted!!</p>
+
+<p>Cooleo</p>
+
+    </p>
+</div>
+
+<!-- Pagination -->
+
+<div class="span4" style="padding-left: 10px; border: 1px dashed; border-radius: 10px">
+  <div class="clear">&nbsp;</div>
+  <h3>Other Posts</h3>
+    <div id="page-navigation"> 
+           
+            <a href="/2014/06/03/Ruby_Sparks/" title="Previous Post: 
+            Ruby Sparks">&laquo; Ruby Sparks</a> 
+           
+        
+           
+      <div class="clear">&nbsp;</div> 
+    </div>
+</div>
+
+<!--Comments -->
+
+<div class="row-fluid">
+<div class="span8">
+<div class="clear">&nbsp;</div> 
+
+    
+    <h3>Comments</h3>
+        <div id="disqus_thread"></div>
+            <script type="text/javascript">
+                /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+                var disqus_shortname = 'kimleabres'; // required: replace example with your forum shortname
+
+                /* * * DON'T EDIT BELOW THIS LINE * * */
+                (function() {
+                    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+                    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+                })();
+            </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+    
+
+</div>
+</div>
+
+</div>
+</body>
+</html>
