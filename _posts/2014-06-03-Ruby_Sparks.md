@@ -9,7 +9,7 @@ comments: true
 ---
  
 <!-- ![Ruby Sparks](/assets/RubySparks.png "Ruby Sparks") -->
-{% include image.html url="/assets/RubySparks.png" description="<em>Ruby Sparks poster, inspired by the Ruby Sparks movie poster</em>" %}
+{% include image.html url="/assets/RubySparksII.png" description="<em>Ruby Sparks poster, inspired by the Ruby Sparks movie poster</em>" %}
 
 The end of my summer vacation is nearing, and the end of our summer internship is coming twice as fast. We're already on our 7th and last week here at **ÆLOGICA** and I'm sure we have learned so much in just one and a half months. 
 
