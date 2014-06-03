@@ -3,8 +3,6 @@
 <!--     <div class="span4">
         {% include sidebar.html %}
     </div> -->
-<div class="span8" style="background-color: rgba(239,239,239,0.1); padding: 10px; border: 1px dashed; border-radius: 10px">
-    <h1>{{ page.title }}</h1>
     <h5>{{ page.date | date_to_long_string }} </h5>
     <p>
       {{ content }}
@@ -13,10 +11,10 @@
 
 <!-- Pagination -->
 
-{% include post_pagination.html %}
+{% include photo_post_pagination.html %}
 
 <!--Comments -->
 
-{% include post_comments.html %}
+{% include photo_post_comments.html %}
 
 {% include footer.html %}

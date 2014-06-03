@@ -5,12 +5,13 @@ layout: default
 {% for post in paginator.posts limit: 3 sort_by: title %}
 <div class="row-fluid">
   <div class="span12">
-    <h2>{{ post.title }}</h2>
-    <h5>{{ post.date | date_to_long_string }}</h5>
-
+    <h5 style="line-height: 0px;">{{ post.date | date_to_long_string | upcase }}</h5>
+    <h2 style="line-height: 25px;">{{ post.title }}</h2>
     <p>
+      <small style="margin-top: 0px;">Read this in about {{ page.content | reading_time }}</small>
       {{ post.excerpt | markdownify | truncatewords: 50 | split: '...' | first }}
       <a href="{{ post.url }}">&hellip;Read More</a>
+      
     <hr>
     </p>
   </div>
