@@ -8,7 +8,7 @@ layout: default
     <h5 style="line-height: 0px;">{{ post.date | date_to_long_string | upcase }}</h5>
     <h2 style="line-height: 25px;">{{ post.title }}</h2>
     <p>
-      <small style="margin-top: 0px;">Read this in about {{ page.content | reading_time }}</small>
+      <em><small style="margin-top: 0px;">Read this in about {{ post.content | reading_time }}</small></em>
       {{ post.excerpt | markdownify | truncatewords: 50 | split: '...' | first }}
       <a href="{{ post.url }}">&hellip;Read More</a>
       

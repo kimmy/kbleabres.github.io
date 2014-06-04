@@ -88,7 +88,18 @@
 
 <p>I then asked Google how to make these plugins work. I followed a set of instructions that told me to rename my current directory to <code>something</code> and create a new directory named <code>something_something</code> and copy the contents of <code>something</code> to <code>something_something</code> and <code>git rm -r</code> my <code>something</code> directory. After that, it made me do <code>jekyll build</code> on <code>something_something</code> and then made me copy the contents of <code>something_something</code> to <code>something</code> and then create a <code>.nojekyll</code> file in the <code>something</code> directory. Then <code>git add --all :/</code> <code>git commit -m "Built site locally"</code> (because this set of steps is making you build your site locally) and finally <code>git push -u origin master</code></p>
 
-<p>After following that set of instructions <strong>oh god the horror x 10000</strong> my website looked a lot more worse than before I did those set of steps. Basically, the layout was stripped out of my blog and the tags weren't working anymore. I was pretty sure I followed the instructions very well. I was sure.</p>
+<p>After following that set of instructions <strong>oh god the horror x 10000</strong></p>
+
+<table class="image">
+<caption align="bottom"><em>THE HORROR</em></caption>
+<tr><td><img src="/assets/Screenshot_2.png" alt="<em>THE HORROR</em>"/></td></tr>
+</table>
+
+
+<div class="clear">&nbsp;</div>
+
+
+<p>My website looked a lot more worse than before I did those set of steps. Basically, the layout was stripped out of my blog and the tags weren't working anymore. I was pretty sure I followed the instructions very well. I was sure.</p>
 
 <p>So I just undid my push, and looked for another set of instructions. Now this one doesn't make me do anything other than pasting a long block of code into my <code>Rakefile</code> and then running <code>rake blog:publish</code>. I hoped that this would work but an error about permission was appearing. I asked Google yet again but there were no answers fit for my problem.</p>
 

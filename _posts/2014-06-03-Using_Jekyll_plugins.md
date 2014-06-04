@@ -22,7 +22,10 @@ Then I found out that GitHub renders pages with safe mode enabled. Therefore, my
 
 I then asked Google how to make these plugins work. I followed a set of instructions that told me to rename my current directory to `something` and create a new directory named `something_something` and copy the contents of `something` to `something_something` and `git rm -r` my `something` directory. After that, it made me do `jekyll build` on `something_something` and then made me copy the contents of `something_something` to `something` and then create a `.nojekyll` file in the `something` directory. Then `git add --all :/` `git commit -m "Built site locally"` (because this set of steps is making you build your site locally) and finally `git push -u origin master` 
 
-After following that set of instructions **oh god the horror x 10000** my website looked a lot more worse than before I did those set of steps. Basically, the layout was stripped out of my blog and the tags weren't working anymore. I was pretty sure I followed the instructions very well. I was sure.
+After following that set of instructions **oh god the horror x 10000** 
+{% include image.html url="/assets/Screenshot_2.png" description="<em>THE HORROR</em>" %}
+
+My website looked a lot more worse than before I did those set of steps. Basically, the layout was stripped out of my blog and the tags weren't working anymore. I was pretty sure I followed the instructions very well. I was sure.
 
 So I just undid my push, and looked for another set of instructions. Now this one doesn't make me do anything other than pasting a long block of code into my `Rakefile` and then running `rake blog:publish`. I hoped that this would work but an error about permission was appearing. I asked Google yet again but there were no answers fit for my problem.
 
